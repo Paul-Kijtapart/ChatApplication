@@ -30,6 +30,19 @@ server.listen(app.get('port'), function() {
 server.on('error', onError);
 server.on('listening', onListening);
 
+/* IO */
+var io = require('socket.io')(server);
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  });
+
+  socket.on('chat message', function(msg) {
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+});
 
 /**
  * Normalize a port into a number, string, or false.
@@ -83,3 +96,5 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+module.exports = server;

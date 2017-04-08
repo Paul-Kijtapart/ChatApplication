@@ -1,16 +1,22 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require("path");
+const favicon = require('serve-favicon');
 var app = express();
 
+/* Paths */
+const VIEW_PATH = path.join(__dirname, "views");
 
-/* Debug middleware */
+/* Util */
 app.use(morgan('dev'));
-// close Debug middleware
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 
 /* Handle each route */
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
-	res.send('<h1>Hello world</h1>');
+	res.sendFile(path.join(VIEW_PATH, "index.html"));
 });
 
 /* ERROR HANDLERS */
