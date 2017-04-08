@@ -1,0 +1,25 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "server in nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-Kijtapart/ChatApplication.git"
+  },
+  "author": "aornawat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paul-Kijtapart/ChatApplication/issues"
+  },
+  "homepage": "https://github.com/Paul-Kijtapart/ChatApplication#readme",
+  "dependencies": {
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1"
+  }
+}
